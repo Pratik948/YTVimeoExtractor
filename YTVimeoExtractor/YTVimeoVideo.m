@@ -151,7 +151,7 @@ NSString *const YTVimeoVideoErrorDomain = @"YTVimeoVideoErrorDomain";
     _HTTPLiveStreamURL = [NSURL URLWithString:[self.infoDict valueForKeyPath:@"request.files.hls.url"]];
         streamURLs[@(0)] = [NSURL URLWithString:urlString];
     
-    if (streamURLs.count == 0 || streamURLs == nil) {
+    if ((streamURLs == nil) || streamURLs.count == 0) {
         
         NSError *unsuitableError = [NSError errorWithDomain:YTVimeoVideoErrorDomain code:YTVimeoErrorNoSuitableStreamAvailable userInfo:@{NSLocalizedDescriptionKey:@"The operation was unable to finish successfully.", NSLocalizedFailureReasonErrorKey: @"The requested Vimeo video does not have a suitable stream. The file cannot natively play on iOS or OS X."}];
         
